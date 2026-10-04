@@ -76,7 +76,7 @@ export default function Home() {
   const [doctors, setDoctors] = useState([]);
 
   useEffect(() => {
-    api('/api/doctors').then((data) => setDoctors(data.doctors)).catch(() => {});
+    api('/api/doctors').then((data) => setDoctors(data.doctors || [])).catch(() => {});
   }, []);
 
   const firstName = session?.user?.name?.split(' ')[0];
